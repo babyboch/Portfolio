@@ -1,14 +1,15 @@
 /** Base Styles
 --------------------------------------------------------------*/
 :root {
-    --accent-color: #F26649;
-    --secondary-color: #F5F3EB;
-    --dark-color: #241F21;
-    --grey-color: #CECBC7;
-    --body-text-color: #241F21;
-    --light-text-color: #696969;
-    --link-color: #241F21;
-  }
+  --accent-color: #3478F6;       /* Primary blue */
+  --secondary-color: #F0F6FF;    /* Light background blue */
+  --dark-color: #1A2A47;         /* Dark blue for text or backgrounds */
+  --grey-color: #C8D6E5;         /* Soft blue-grey */
+  --body-text-color: #1A2A47;    /* Dark blue text */
+  --light-text-color: #5F6F8C;   /* Medium blue-grey text */
+  --link-color: #1A2A47;
+}
+
 
   *, *::before, *::after {
     -webkit-box-sizing: border-box;
@@ -240,8 +241,12 @@ section.hero h2{
   color: var(--secondary-color);
 }
 
-section.hero p, a {
+section.hero p {
   color: var(--grey-color);
+}
+
+ a {
+  color: #1A2A47;
 }
 
 section.hero p.copyright{
@@ -494,7 +499,7 @@ article.blog-article {
 /* contact section  */
 
 .contact-list{
-  border: 1px solid #F26649;
+  border: 1px solid #030d4f;
   border-radius: 15px;
   width: 237px;
   height: 145px;
@@ -521,7 +526,7 @@ color: var(--body-text-color);
 @media only screen and (max-width: 900px) {
 
   .contact-list{
-    border: 1px solid #F26649;
+    border: 1px solid #1f9eff;
     border-radius: 15px;
     width: 237px;
     height: 100px;

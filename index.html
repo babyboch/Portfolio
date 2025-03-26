@@ -22,6 +22,16 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap"
         rel="stylesheet">
 
+        <!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+
     <!-- script
 	================================================== -->
     <script src="js/modernizr.js"></script>
@@ -54,22 +64,40 @@
                     </li>
                     <li>
                         <a href="#about" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                            aria-label="Dashboard" data-bs-original-title="Dashboard">
+                            aria-label="Aboutme" data-bs-original-title="Aboutme">
                             <iconify-icon icon="ic:round-person"></iconify-icon>
                         </a>
                     </li>
                     <li>
-                        <a href="#resume" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                            aria-label="Orders" data-bs-original-title="Orders">
+                        <a href="#experience" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
+                            aria-label="Experience" data-bs-original-title="Experience">
+                            <iconify-icon icon="ic:round-work"></iconify-icon>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#education" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
+                            aria-label="Education" data-bs-original-title="Education">
                             <iconify-icon icon="ic:round-school"></iconify-icon>
+                        </a>
+                    </li>
+
+                    
+                    <li>
+                        <a href="#certification" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
+                            aria-label="Certification" data-bs-original-title="Certification">
+                            <iconify-icon icon="ic:round-verified"></iconify-icon>
                         </a>
                     </li>
                     <li>
                         <a href="#portfolio" class="nav-link rounded-0" data-bs-toggle="tooltip"
-                            data-bs-placement="right" aria-label="Products" data-bs-original-title="Products">
-                            <iconify-icon icon="ic:round-business-center"></iconify-icon>
+                            data-bs-placement="right" aria-label="Portfolio" data-bs-original-title="Portfolio">
+                            <iconify-icon icon="mdi:briefcase-variant"></iconify-icon>
                         </a>
                     </li>
+                    
+                    
+                    
                     <li>
                         <a href="#blog" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
                             aria-label="Customers" data-bs-original-title="Customers">
@@ -130,12 +158,8 @@
 
                     </section>
 
-                    <section id="resume">
-                        <!-- <div class="py-4 my-4 ">
-                            <h1 class="fw-bold">Resume</h1>
-                        </div>
-
-                        <hr class="mid-break my-2"> -->
+                    <section id="experience">
+                        
 
                         <div class="py-4 my-4 ">
                             <h2 class="fw-bold pb-4">Experience</h2>
@@ -220,7 +244,7 @@
 
                         <hr class="mid-break my-2">
 
-                        <div class="py-4 my-4 ">
+                        <section id="education" class="py-4 my-4 ">
                             <h2 class="fw-bold pb-4">Education</h2>
 
                             <div class="row justify-content-start" data-aos="fade-up">
@@ -266,10 +290,106 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </section>
 
                     </section>
 
+                    <section id="certification">
+                        <div class="py-4 my-4 ">
+                            <h1 class="fw-bold">Certifications</h1>
+                        </div>
+                    
+                        <div class="row justify-content-start">
+                            <div class="col-8">
+                                <div class="data-info">
+                                    <p class="meta-date">Mar 2023 <img src="images/Ellipse 7.png" alt=""> <a class="open-description">Coursera</a></p>
+                                    <h3 class="info-title">
+                                        <a href="https://www.coursera.org/account/accomplishments/certificate/YXPC3WXBHV64" target="_blank">
+                                            Build Wireframes and Low-Fidelity Prototypes
+                                        </a>
+                                    </h3>
+                                    <p>Skills: User Interface Design · Programming · Web Development · User Experience (UX)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mid-break my-2">
+                    
+                        <div class="row justify-content-start">
+                            <div class="col-8">
+                                <div class="data-info">
+                                    <p class="meta-date">Mar 2023 <img src="images/Ellipse 7.png" alt=""> <a class="open-description">Coursera</a></p>
+                                    <h3 class="info-title">
+                                        <a href="https://www.coursera.org/account/accomplishments/verify/LP3ET8SJBPNV?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course" target="_blank">
+                                            Start the UX Design Process: Empathize, Define, and Ideate
+                                        </a>
+                                    </h3>
+                                    <p>Skills: User Interface Design · Programming · Web Development · User Experience (UX)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mid-break my-2">
+                    
+                        <div class="row justify-content-start">
+                            <div class="col-8">
+                                <div class="data-info">
+                                    <p class="meta-date">Jan 2023 <img src="images/Ellipse 7.png" alt=""> <a class="open-description">Coursera</a></p>
+                                    <h3 class="info-title">
+                                        <a href="https://www.coursera.org/account/accomplishments/certificate/C6GJFHB8HL5K" target="_blank">
+                                            Foundations of User Experience (UX) Design
+                                        </a>
+                                    </h3>
+                                    <p>Skills: User Interface Design · Programming · Web Development · User Experience (UX)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mid-break my-2">
+                    
+                        <div class="row justify-content-start">
+                            <div class="col-8">
+                                <div class="data-info">
+                                    <p class="meta-date">Mar 2022 <img src="images/Ellipse 7.png" alt=""> <a class="open-description">Unity</a></p>
+                                    <h3 class="info-title">
+                                        <a href="https://www.credly.com/badges/a813b3d5-0536-4c19-9981-e1f60d2f39dd?source=linked_in_profile" target="_blank">
+                                            Unity Certified User: Programmer
+                                        </a>
+                                    </h3>
+                                    <p>Skills: Game Design · Unity · UI Design · Programming · Web Development · Game Development · C#</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mid-break my-2">
+                    
+                        <div class="row justify-content-start">
+                            <div class="col-8">
+                                <div class="data-info">
+                                    <p class="meta-date">2022 <img src="images/Ellipse 7.png" alt=""> <a class="open-description">AWS Academy</a></p>
+                                    <h3 class="info-title">
+                                        <a href="https://www.credly.com/badges/666f8809-d542-458a-8d6f-0998b160b00b" target="_blank">
+                                            AWS Academy Graduate - AWS Academy Cloud Foundations
+                                        </a>
+                                    </h3>
+                                    <p>Skills: Cloud Computing · AWS · Infrastructure · Networking</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mid-break my-2">
+                    
+                        <div class="row justify-content-start">
+                            <div class="col-8">
+                                <div class="data-info">
+                                    <p class="meta-date">Nov 2020 <img src="images/Ellipse 7.png" alt=""> <a class="open-description">Sololearn</a></p>
+                                    <h3 class="info-title">
+                                        <a href="https://www.sololearn.com/Certificate/CT-3V7BKN6P/pdf" target="_blank">
+                                            DS with Python
+                                        </a>
+                                    </h3>
+                                    <p>Skills: Python · Data Visualization · Data Science · Web Dev · UI Design · Programming</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    
                     <section id="portfolio">
 
 
@@ -414,7 +534,7 @@
                         <div class="row justify-content-start" data-aos="fade-up">
                             <div class="col-8">
                                 <div class="data-info  ">
-                                    <p class="meta-date">2023<img src="images/Ellipse 7.png" alt=""> <a
+                                    <p class="meta-date">2023<img src="images/Ellipse 7.png" > <a
                                             class="open-description">The 19th International Conference on Computing and
                                             Information Technology (IC2IT 2023)</a></p>
                                     <h3 class="info-title"><i>"Holistic Evaluation Framework for VR Industrial
@@ -487,9 +607,14 @@
 
                             <div class="row">
                                 <div class="col-md-4 contact-list">
-                                    <p class="contact-paragraph"><iconify-icon icon="ic:outline-phone"></iconify-icon>
-                                        +81 9021579386 </p>
+                                    <p class="contact-paragraph">
+                                        <iconify-icon icon="mdi:linkedin"></iconify-icon>
+                                        <a href="https://www.linkedin.com/in/nattamon-srithammee-9105a792/" target="_blank">
+                                            LinkedIn Profile
+                                        </a>
+                                    </p>
                                 </div>
+                                
                                 <div class="col-md-4 contact-list">
                                     <p class="contact-paragraph"><iconify-icon icon="ic:outline-email"></iconify-icon>
                                         natsrithammee@gmail.com </p>
@@ -519,11 +644,15 @@
                         </p>
                         <div class="social-icon my-4">
                             <p>
-                                <a class="social-link active" href="https://github.com/babyboch"> <iconify-icon
-                                        icon="icomoon-free:github"></iconify-icon> </a>
-
+                                <a class="social-link active" href="https://github.com/babyboch" target="_blank">
+                                    <iconify-icon icon="icomoon-free:github"></iconify-icon>
+                                </a>
+                                <a class="social-link active" href="https://www.linkedin.com/in/nattamon-srithammee-9105a792/" target="_blank">
+                                    <iconify-icon icon="mdi:linkedin"></iconify-icon>
+                                </a>
                             </p>
                         </div>
+                        
                     </div>
                 </section>
             </div>
