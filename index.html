@@ -1,674 +1,794 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Nattamon Portfolio CV</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nattamon Srithammee — Ph.D. Candidate at Tokyo Metropolitan University. AR/VR Developer & Researcher specialising in multimodal perception, immersive systems, and human-centred interaction design.">
+  <title>Nattamon Srithammee — AR/VR Developer & Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    :root {
+      --ink: #111114;
+      --ink-light: #555560;
+      --ink-faint: #a0a0b0;
+      --paper: #ffffff;
+      --paper-warm: #f5f5f7;
+      --paper-card: #f9f9fb;
+      --accent: #eb0a1e;
+      --accent-2: #8a6a3a;
+      --accent-soft: rgba(235,10,30,0.06);
+      --rule: rgba(17,17,20,0.08);
+      --rule-bright: rgba(17,17,20,0.13);
+      --sans: 'Space Grotesk', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/vendor.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <link rel="shortcut icon" href="img/letter-n.png" />
+    html { scroll-behavior: smooth; font-size: 16px; }
 
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 0;
+      background-image:
+        linear-gradient(rgba(235,10,30,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(235,10,30,0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
 
-        <!-- AOS CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    body::before {
+      content: '';
+      position: fixed; top: -20%; left: -10%;
+      width: 60vw; height: 60vw;
+      background: radial-gradient(ellipse at center, rgba(235,10,30,0.04) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
 
-<!-- AOS JS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-    AOS.init();
-</script>
+    /* ── CURSOR ── */
+    .cursor {
+      width: 8px; height: 8px;
+      background: var(--accent); border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
+    .cursor-ring {
+      width: 32px; height: 32px;
+      border: 1px solid var(--accent); border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: left 0.08s, top 0.08s;
+      opacity: 0.4;
+    }
+    @media (hover: none) {
+      .cursor, .cursor-ring { display: none; }
+    }
 
+    /* ── SIDE NAV ── */
+    .sidenav {
+      position: fixed; left: 2.5rem; top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: flex; flex-direction: column;
+      gap: 1.5rem; align-items: center;
+    }
+    .sidenav__line { width: 1px; height: 48px; background: var(--rule); }
+    .sidenav a {
+      display: block; width: 6px; height: 6px;
+      border-radius: 50%; background: var(--ink-faint);
+      transition: background 0.3s, transform 0.3s;
+      position: relative;
+    }
+    .sidenav a:hover, .sidenav a.active { background: var(--accent); transform: scale(1.8); }
+    .sidenav a span {
+      position: absolute; left: 16px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.65rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ink-light);
+      white-space: nowrap; opacity: 0;
+      transition: opacity 0.2s; pointer-events: none;
+      font-family: var(--mono);
+    }
+    .sidenav a:hover span { opacity: 1; }
 
-    <!-- script
-	================================================== -->
-    <script src="js/modernizr.js"></script>
-    <style>
-        /* Optional CSS to limit image width for larger screens */
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
+    /* ── LAYOUT ── */
+    .page { max-width: 760px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+    section { padding: 6rem 0; border-bottom: 1px solid var(--rule); }
+    section:last-child { border-bottom: none; }
 
+    /* ── HERO ── */
+    #home { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    .hero__eyebrow {
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      font-family: var(--mono);
+    }
+    .hero__eyebrow::before { content: '//'; color: var(--accent-2); }
+    .hero__name {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700; line-height: 1.05; letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .hero__name em { font-style: normal; color: var(--accent); }
+    .hero__tagline {
+      font-size: 1rem; color: var(--ink-light);
+      max-width: 480px; line-height: 1.8; margin-bottom: 3rem;
+    }
+    .hero__tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 3rem; }
+    .tag {
+      font-size: 0.72rem; letter-spacing: 0.06em;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid var(--rule-bright);
+      color: var(--ink-light); background: var(--paper-card);
+      font-family: var(--mono);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      border-radius: 2px;
+    }
+    .tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+    .hero__meta {
+      display: flex; gap: 3rem;
+      margin-top: 3rem; padding-top: 2rem;
+      border-top: 1px solid var(--rule); flex-wrap: wrap;
+    }
+    .hero__meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+    .hero__meta-label {
+      font-size: 0.65rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--ink-faint);
+      font-family: var(--mono);
+    }
+    .hero__meta-value { font-size: 0.9rem; font-weight: 500; }
+    .hero__scroll {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.7rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--ink-faint);
+      margin-top: 4rem; font-family: var(--mono);
+    }
+    .hero__scroll::after {
+      content: ''; display: block; width: 48px; height: 1px;
+      background: var(--ink-faint);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { width: 48px; opacity: 1; }
+      50% { width: 80px; opacity: 0.4; }
+    }
+    .hero__actions { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+
+    /* ── BUTTONS ── */
+    .btn-primary, .btn-secondary, .btn-ghost {
+      display: inline-block; font-family: var(--mono);
+      font-size: 0.75rem; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 0.65rem 1.4rem;
+      transition: all 0.2s; cursor: pointer; border-radius: 2px;
+    }
+    .btn-primary { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
+    .btn-primary:hover { background: #c8001a; box-shadow: 0 4px 20px rgba(235,10,30,0.25); }
+    .btn-secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+    .btn-secondary:hover { background: var(--accent-soft); }
+    .btn-ghost { background: transparent; color: var(--ink-light); border: 1px solid var(--rule-bright); }
+    .btn-ghost:hover { border-color: var(--ink-faint); color: var(--ink); }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 3rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      font-family: var(--mono);
+    }
+    .section-label::before { content: '//'; color: var(--accent-2); }
+    h2.section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700; line-height: 1.15; letter-spacing: -0.02em;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── ABOUT ── */
+    .about__body { font-size: 1.05rem; line-height: 1.9; color: var(--ink-light); max-width: 620px; margin-bottom: 3rem; }
+    .about__body strong { color: var(--ink); font-weight: 600; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+    .skill-group h4 { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.75rem; font-family: var(--mono); }
+    .skill-group ul { list-style: none; }
+    .skill-group ul li { font-size: 0.88rem; color: var(--ink-light); padding: 0.25rem 0; border-bottom: 1px solid var(--rule); transition: color 0.2s, padding-left 0.2s; }
+    .skill-group ul li:hover { color: var(--accent); padding-left: 0.5rem; }
+
+    /* ── ABOUT EXTRAS (languages / eligibility) ── */
+    .about__extras {
+      margin-top: 2.5rem; padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    }
+    .extras__heading {
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--ink-faint); margin-bottom: 1rem; font-family: var(--mono);
+    }
+    .lang-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .lang-row { display: flex; justify-content: space-between; font-size: 0.88rem; }
+    .lang-name { color: var(--ink); }
+    .lang-level { font-size: 0.7rem; color: var(--ink-faint); font-family: var(--mono); }
+    .lang-level--accent { color: var(--accent); }
+    .lang-bar { height: 2px; background: var(--rule); border-radius: 2px; margin-bottom: 0.4rem; }
+    .lang-bar__fill { height: 100%; border-radius: 2px; background: var(--ink); }
+    .lang-bar__fill--accent { background: var(--accent); }
+    .eligibility-body { font-size: 0.88rem; color: var(--ink-light); line-height: 2; }
+    .eligibility-body strong { color: var(--ink); }
+    .eligibility-note { margin-top: 0.5rem; font-size: 0.78rem; color: var(--ink-faint); line-height: 1.6; }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 0; top: 0.5rem; bottom: 0.5rem; width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+      opacity: 0.25;
+    }
+    .timeline-item {
+      position: relative; padding: 0 0 3rem 2rem;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .timeline-item.visible { opacity: 1; transform: translateY(0); }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -0.25rem; top: 0.5rem;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--paper); border: 1px solid var(--ink-faint);
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .timeline-item:hover::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 10px rgba(235,10,30,0.4); }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-date { font-size: 0.7rem; letter-spacing: 0.08em; font-family: var(--mono); color: var(--ink-faint); margin-bottom: 0.4rem; }
+    .timeline-org { font-size: 0.78rem; color: var(--accent); margin-bottom: 0.4rem; font-weight: 500; }
+    .timeline-org a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+    .timeline-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.6rem; }
+    .timeline-desc { font-size: 0.88rem; color: var(--ink-light); line-height: 1.7; }
+    .timeline-desc strong { color: var(--ink); }
+    .timeline-desc ul { padding-left: 1.2rem; margin-top: 0.4rem; }
+    .timeline-desc ul li { margin-bottom: 0.3rem; }
+    .timeline-meta { font-size: 0.8rem; color: var(--ink-faint); font-family: var(--mono); margin-top: 0.75rem; }
+
+    /* ── CERTS ── */
+    .cert-grid { display: grid; gap: 1px; background: var(--rule-bright); border: 1px solid var(--rule-bright); border-radius: 4px; overflow: hidden; }
+    .cert-item { background: var(--paper-card); padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; transition: background 0.2s; text-decoration: none; }
+    .cert-item:hover { background: var(--paper-warm); }
+    .cert-main { flex: 1; }
+    .cert-title { font-size: 0.92rem; color: var(--ink); font-weight: 500; margin-bottom: 0.25rem; }
+    .cert-issuer { font-size: 0.75rem; color: var(--ink-faint); letter-spacing: 0.05em; }
+    .cert-date { font-size: 0.7rem; color: var(--ink-faint); white-space: nowrap; font-family: var(--mono); padding-top: 0.1rem; }
+    .cert-arrow { font-size: 0.75rem; color: var(--accent); opacity: 0; transition: opacity 0.2s; align-self: center; }
+    .cert-item:hover .cert-arrow { opacity: 1; }
+
+    /* ── PORTFOLIO ── */
+    .pf-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .portfolio-card { position: relative; overflow: hidden; background: var(--paper-warm); aspect-ratio: 4/3; cursor: pointer; }
+    .portfolio-card[hidden] { display: none; }
+    .portfolio-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(.25,.46,.45,.94); display: block; }
+    .portfolio-card:hover img { transform: scale(1.05); }
+    .portfolio-card__overlay { position: absolute; inset: 0; background: rgba(10,10,15,0.88); opacity: 0; transition: opacity 0.3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; }
+    .portfolio-card:hover .portfolio-card__overlay { opacity: 1; }
+    .portfolio-card__cat { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; font-family: var(--mono); }
+    .portfolio-card__title { font-size: 1rem; color: #fff; font-weight: 600; }
+    .pf-btn { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 1rem; border: 1px solid var(--rule-bright); background: transparent; color: var(--ink-light); cursor: pointer; transition: all 0.2s; border-radius: 2px; }
+    .pf-btn:hover, .pf-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list { display: flex; flex-direction: column; }
+    .pub-item { padding: 1.75rem 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 3rem 1fr; gap: 1.5rem; opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .pub-item.visible { opacity: 1; transform: translateY(0); }
+    .pub-year { font-size: 0.72rem; color: var(--accent-2); font-family: var(--mono); padding-top: 0.25rem; }
+    .pub-venue { font-size: 0.7rem; letter-spacing: 0.06em; font-family: var(--mono); color: var(--accent); margin-bottom: 0.4rem; }
+    .pub-badge { display: inline-block; font-size: 0.68rem; color: var(--accent); border: 1px solid var(--accent); padding: 0.15rem 0.5rem; margin-left: 0.5rem; font-family: var(--mono); vertical-align: middle; }
+    .pub-title { font-size: 1rem; font-weight: 500; line-height: 1.5; margin-bottom: 0.4rem; }
+    .pub-authors { font-size: 0.82rem; color: var(--ink-faint); font-family: var(--mono); }
+
+    /* ── CONTACT ── */
+    .contact-intro { color: var(--ink-light); max-width: 460px; font-size: 0.95rem; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule-bright); border: 1px solid var(--rule-bright); border-radius: 4px; overflow: hidden; margin-top: 2rem; }
+    .contact-cell { background: var(--paper-card); padding: 1.5rem; transition: background 0.2s; text-decoration: none; display: block; }
+    .contact-cell:hover { background: var(--paper-warm); }
+    .contact-cell__label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.5rem; font-family: var(--mono); }
+    .contact-cell__value { font-size: 0.9rem; color: var(--ink); word-break: break-all; }
+    .contact-cell:hover .contact-cell__value { color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer { text-align: center; padding: 3rem 2rem; font-size: 0.75rem; color: var(--ink-faint); letter-spacing: 0.08em; font-family: var(--mono); border-top: 1px solid var(--rule); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.8s ease forwards; }
+    .delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .delay-2 { animation-delay: 0.25s; opacity: 0; }
+    .delay-3 { animation-delay: 0.4s; opacity: 0; }
+    .delay-4 { animation-delay: 0.55s; opacity: 0; }
+    .delay-5 { animation-delay: 0.7s; opacity: 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .sidenav { display: none; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .hero__meta { gap: 1.5rem; }
+      .about__extras { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
-<body data-bs-spy="scroll" data-bs-target="#navigation-bar" tabindex="0">
-
-
-    <div>
-        <div class="row">
-
-            <section id="navigation-bar" class="navigation position-fixed">
-
-
-                <ul class="nav nav-pills text-center">
-                    <li>
-                        <a href="#home" class="nav-link active rounded-0" aria-current="page" data-bs-toggle="tooltip"
-                            data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-                            <iconify-icon icon="ic:round-home"></iconify-icon>
-
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#about" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                            aria-label="Aboutme" data-bs-original-title="Aboutme">
-                            <iconify-icon icon="ic:round-person"></iconify-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#experience" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                            aria-label="Experience" data-bs-original-title="Experience">
-                            <iconify-icon icon="ic:round-work"></iconify-icon>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="#education" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                            aria-label="Education" data-bs-original-title="Education">
-                            <iconify-icon icon="ic:round-school"></iconify-icon>
-                        </a>
-                    </li>
-
-                    
-                    <li>
-                        <a href="#certification" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                            aria-label="Certification" data-bs-original-title="Certification">
-                            <iconify-icon icon="ic:round-verified"></iconify-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#portfolio" class="nav-link rounded-0" data-bs-toggle="tooltip"
-                            data-bs-placement="right" aria-label="Portfolio" data-bs-original-title="Portfolio">
-                            <iconify-icon icon="mdi:briefcase-variant"></iconify-icon>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="#blog" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                            aria-label="Customers" data-bs-original-title="Customers">
-                            <iconify-icon icon="ic:round-menu-book"></iconify-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#contact" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                            aria-label="Customers" data-bs-original-title="Customers">
-                            <iconify-icon icon="ic:round-phone"></iconify-icon>
-                        </a>
-                    </li>
-                </ul>
-
-            </section>
-
-            <div class="col-md-6 offset-md-2">
-
-                <div class="container content-container">
-
-                    <section id="home" class="mt-0">
-
-                        <div class=" py-4 my-4 text-center">
-                            <h1 class="fw-bold">Hi I’m Nattamon</h1>
-                            <div class="col-lg-10 mx-auto">
-                                <p class="lead-paragraph mb-4">A passionate AR/VR Developer specializing in immersive technologies, seamlessly integrating design, innovation, and problem-solving to enhance user experiences. Dedicated to staying ahead of emerging trends in AR/VR and pushing the boundaries of virtual interaction.
-                                </p>
-                            </div>
-                        </div>
-
-                    </section>
-
-                    <section id="about" class="mt-0">
-
-                        <div class="py-4 my-4 ">
-                            <h1 class="fw-bold">About Me</h1>
-                            <p class="lead-paragraph my-4">Driven AR/VR Developer committed to crafting cutting-edge virtual experiences. Skilled in both frontend and backend development, ensuring fluid and interactive environments. Known for a strong problem-solving mindset and a forward-thinking approach to AR/VR advancements. Excited to innovate and redefine the possibilities of immersive technology.
-                            </p>
-                        </div>
-
-                        <hr class="mid-break my-2">
-
-                        <!-- <div class=" py-4 my-4 ">
-                            <h2 class="fw-bold">Personal Info</h2>
-
-                            <ul class="list-unstyled">
-                                <li><b>Age:</b> 26 </li>
-                                <li><b>Residence:</b> Japan (Currently residing in Japan, originally from Thailand) </li>
-                                <li><b>Address:</b> Saensook, A. Muang,
-                                    Chonburi, Thailand 20131 </li>
-                                <li><b>E-mail:</b> natsrithammee@gmail.com</li>
-                                <li><b>Phone:</b> +81 9021579386 </li>
-                            </ul>
-
-                        </div>
-
-                        <hr class="mid-break my-2"> -->
-
-                    </section>
-
-                    <section id="experience">
-                        
-
-                        <div class="py-4 my-4 ">
-                            <h2 class="fw-bold pb-4">Experience</h2>
-
-
-                            <div class="row justify-content-start" data-aos="fade-up">
-                                <div class="col-7">
-                                    <div class="data-info ">
-                                        <p class="meta-date">May 2023 - Nov 2023 <img src="images/Ellipse 7.png" alt=""> <a
-                                                class="open-description"> NetDesign Host Co. </a> </p>
-                                        <h3 class="info-title">Private Teacher (Contractor)</h3>
-                                        <p>
-                                        <ul>
-                                            <li>Computer Art & Graphic Design 22 May - 1 June 2023 (Group)</li>
-                                            <li>Computer Art & Graphic Design 22 May - 1 June 2023 (Private)</li>
-                                            <li>Python for Beginner 27 May - 29 July 2023 (Private)</li>
-                                            <li>Computer Art & Graphic Design 30 May - 4 June 2023 (Private)</li>
-                                            <li>Learn 3D Modelling for Beginners By using Blender 3.5 17 June - 2 July
-                                                2023 (Private)</li>
-                                            <li>Illustrator for Infographic 26 June - 30 June 2023 (Private)</li>
-                                        </ul>
-                                        </p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <hr class="mid-break my-2">
-                            <div class="row justify-content-start" data-aos="fade-up">
-                                <div class="col-7">
-                                    <div class="data-info">
-                                        <p class="meta-date">May 2023- Feb 2024 <img src="images/Ellipse 7.png" alt=""> <a
-                                                class="open-description">Veeva Systems Inc.</a> </p>
-                                        <h3 class="info-title">Data Steward (Contractor)</h3>
-                                        <p>web research and data entry</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <hr class="mid-break my-2">
-                            <div class="row justify-content-start" data-aos="fade-up">
-                                <div class="col-7">
-                                    <div class="data-info ">
-                                        <p class="meta-date">2020-2023 <img src="images/Ellipse 7.png" alt=""> <a
-                                                class="open-description"> Faculty of Informatics, Burapha University</a>
-                                        </p>
-                                        <h3 class="info-title">Teaching Assistant</h3>
-                                        <p>
-                                        <ul>
-                                            <li>Subject: 88737459 User Interface and User Experience Design (74 Hours)
-                                            <li>Subject: 89036363 Natural Language Processing (90 Hours)</li>
-                                            <li>Subject: 88747259 Augmented and Virtual Reality (48 Hours)</li>
-                                            <li>Subject: 89011064 Information Technology for Industry (26 Hours)</li>
-                                            <li>Subject: 89033163 Business Intelligence and Data Visualization (22
-                                                Hours)</li>
-                                            <li>Subject: 88738559 Game Development (48 Hours)</li>
-                                            <li>Subject: 88510459 Programming Fundamental (48 Hours)</li>
-                                        </ul>
-                                        </p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <hr class="mid-break my-2">
-                            <div class="row justify-content-start" data-aos="fade-up">
-                                <div class="col-7">
-                                    <div class="data-info ">
-                                        <p class="meta-date">2019-2020 <img src="images/Ellipse 7.png" alt=""> <a
-                                                class="open-description"> Protoss Technology Co., Ltd.</a></p>
-                                        <h3 class="info-title">Software Developer (Internship)</h3>
-                                        <p>https://www.protosstechnology.com/
-                                        <ul>
-                                            <li>Design web pages using the angular framework.</li>
-                                            <li>Design angular material page using angular material and FullCalendar
-                                                library.</li>
-                                            <li>Design graphics using Adobe Photoshop, Adobe Illustrator.</li>
-                                        </ul>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr class="mid-break my-2">
-
-                        <section id="education" class="py-4 my-4 ">
-                            <h2 class="fw-bold pb-4">Education</h2>
-
-                            <div class="row justify-content-start" data-aos="fade-up">
-                                <div class="col-7">
-                                    <div class="data-info ">
-                                        <p class="meta-date">2024 - Present <img src="images/Ellipse 7.png" alt="">
-                                            <a class="open-description">Tokyo Metropolitan University, Japan</a>
-                                        </p>
-                                        <h3 class="info-title">Ph.D. Student, Computer Science</h3>
-                                        <p>Currently pursuing a Doctorate in Computer Science.</p>
-                                        <p>Thesis: A Study on the Influence of Audio on User Experience in Virtual Reality</p>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <hr class="mid-break my-2">
-                            <div class="row justify-content-start" data-aos="fade-up">
-                                <div class="col-7">
-                                    <div class="data-info  ">
-                                        <p class="meta-date">2020 - 2023 <img src="images/Ellipse 7.png" alt="">
-                                            <a class="open-description">Burapha University</a>
-                                        </p>
-                                        <h3 class="info-title">M.Sc., Data Science</h3>
-                                        <p>Successfully graduate in Master of Science (Data Science)</p>
-
-                                        Thesis: Assessment framework development for industrial training with virtual
-                                        reality
-                                    </div>
-                                </div>
-                            </div>
-                            <hr class="mid-break my-2">
-                            <div class="row justify-content-start" data-aos="fade-up">
-                                <div class="col-7">
-                                    <div class="data-info  ">
-                                        <p class="meta-date">2016 - 2019 <img src="images/Ellipse 7.png" alt=""> <a
-                                                class="open-description">Burapha University</a></p>
-                                        <h3 class="info-title">B.Sc., Information Technology</h3>
-                                        <p>Successfully graduate in Bachelor of Science (Information Technology for
-                                            Digital Industry)</p>
-
-                                        Topic: A course training registration user interface design and an employee
-                                        leave system development
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                    </section>
-
-                    <section id="certification">
-                        <div class="py-4 my-4 ">
-                            <h1 class="fw-bold">Certifications</h1>
-                        </div>
-                    
-                        <div class="row justify-content-start">
-                            <div class="col-8">
-                                <div class="data-info">
-                                    <p class="meta-date">Mar 2023 <img src="images/Ellipse 7.png" alt=""> <a class="open-description">Coursera</a></p>
-                                    <h3 class="info-title">
-                                        <a href="https://www.coursera.org/account/accomplishments/certificate/YXPC3WXBHV64" target="_blank">
-                                            Build Wireframes and Low-Fidelity Prototypes
-                                        </a>
-                                    </h3>
-                                    <p>Skills: User Interface Design · Programming · Web Development · User Experience (UX)</p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="mid-break my-2">
-                    
-                        <div class="row justify-content-start">
-                            <div class="col-8">
-                                <div class="data-info">
-                                    <p class="meta-date">Mar 2023 <img src="images/Ellipse 7.png" alt=""> <a class="open-description">Coursera</a></p>
-                                    <h3 class="info-title">
-                                        <a href="https://www.coursera.org/account/accomplishments/verify/LP3ET8SJBPNV?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course" target="_blank">
-                                            Start the UX Design Process: Empathize, Define, and Ideate
-                                        </a>
-                                    </h3>
-                                    <p>Skills: User Interface Design · Programming · Web Development · User Experience (UX)</p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="mid-break my-2">
-                    
-                        <div class="row justify-content-start">
-                            <div class="col-8">
-                                <div class="data-info">
-                                    <p class="meta-date">Jan 2023 <img src="images/Ellipse 7.png" alt=""> <a class="open-description">Coursera</a></p>
-                                    <h3 class="info-title">
-                                        <a href="https://www.coursera.org/account/accomplishments/certificate/C6GJFHB8HL5K" target="_blank">
-                                            Foundations of User Experience (UX) Design
-                                        </a>
-                                    </h3>
-                                    <p>Skills: User Interface Design · Programming · Web Development · User Experience (UX)</p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="mid-break my-2">
-                    
-                        <div class="row justify-content-start">
-                            <div class="col-8">
-                                <div class="data-info">
-                                    <p class="meta-date">Mar 2022 <img src="images/Ellipse 7.png" alt=""> <a class="open-description">Unity</a></p>
-                                    <h3 class="info-title">
-                                        <a href="https://www.credly.com/badges/a813b3d5-0536-4c19-9981-e1f60d2f39dd?source=linked_in_profile" target="_blank">
-                                            Unity Certified User: Programmer
-                                        </a>
-                                    </h3>
-                                    <p>Skills: Game Design · Unity · UI Design · Programming · Web Development · Game Development · C#</p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="mid-break my-2">
-                    
-                        <div class="row justify-content-start">
-                            <div class="col-8">
-                                <div class="data-info">
-                                    <p class="meta-date">2022 <img src="images/Ellipse 7.png" alt=""> <a class="open-description">AWS Academy</a></p>
-                                    <h3 class="info-title">
-                                        <a href="https://www.credly.com/badges/666f8809-d542-458a-8d6f-0998b160b00b" target="_blank">
-                                            AWS Academy Graduate - AWS Academy Cloud Foundations
-                                        </a>
-                                    </h3>
-                                    <p>Skills: Cloud Computing · AWS · Infrastructure · Networking</p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="mid-break my-2">
-                    
-                        <div class="row justify-content-start">
-                            <div class="col-8">
-                                <div class="data-info">
-                                    <p class="meta-date">Nov 2020 <img src="images/Ellipse 7.png" alt=""> <a class="open-description">Sololearn</a></p>
-                                    <h3 class="info-title">
-                                        <a href="https://www.sololearn.com/Certificate/CT-3V7BKN6P/pdf" target="_blank">
-                                            DS with Python
-                                        </a>
-                                    </h3>
-                                    <p>Skills: Python · Data Visualization · Data Science · Web Dev · UI Design · Programming</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    
-                    
-                    <section id="portfolio">
-
-
-                        <div class="py-4 my-4 ">
-                            <h1 class="fw-bold">Portfolio</h1>
-                        </div>
-
-                        <hr class="mid-break my-2">
-
-
-                        <div class="py-4 my-4 ">
-
-                            <div class="mb-5">
-                                <p>
-                                    <button class="filter-button active" data-filter="*">All</button>
-                                    <button class="filter-button" data-filter=".branding">VR Training</button>
-                                    <button class="filter-button" data-filter=".tshirt">ARCellularNBTC</button>
-                                    <button class="filter-button" data-filter=".package">LOGO</button>
-                                    <button class="filter-button" data-filter=".poster">Poster</button>
-                                </p>
-                            </div>
-
-
-                            <div class="isotope-container">
-
-                                <div class="item poster col-md-4">
-                                    <a href="images/6_ปก KST_230310.jpg" title="Boxed Water" class="image-link">
-                                        <img class="portfolio-img" src="images/6_ปก KST_230310.jpg" alt="">
-                                        <div class="description">
-                                            <h4>KST 2021</h4>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="item branding col-md-4">
-                                    <a href="images/VR.jpg" title="Boxed Water" class="image-link">
-                                        <img class="portfolio-img" src="images/VR.jpg" alt="">
-                                        <div class="description">
-                                            <h4>VR Training for EV Assembly</h4>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="item poster col-md-4">
-                                    <a href="images/5_ปก KST_230310.jpg" title="Boxed Water" class="image-link">
-                                        <img class="portfolio-img" src="images/5_ปก KST_230310.jpg" alt="">
-                                        <div class="description">
-                                            <h4>KST 2021</h4>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item poster col-md-4">
-                                    <a href="images/Isometric Perspective A3 Poster Mockup.jpg" title="Boxed Water"
-                                        class="image-link">
-                                        <img class="portfolio-img"
-                                            src="images/Isometric Perspective A3 Poster Mockup.jpg" alt="">
-                                        <div class="description">
-                                            <h4>KST 2023</h4>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-                                <div class="item tshirt col-md-4">
-                                    <a href="images/AR.jpg" title="Boxed Water" class="image-link">
-                                        <img class="portfolio-img" src="images/AR.jpg" alt="">
-                                        <div class="description">
-                                            <h4>ARCellularNBTC</h4>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="item poster col-md-4">
-                                    <a href="images/LINE_ALBUM_KST2022_230310.jpg" title="Boxed Water"
-                                        class="image-link">
-                                        <img class="portfolio-img" src="images/LINE_ALBUM_KST2022_230310.jpg" alt="">
-                                        <div class="description">
-                                            <h4>KST 2022</h4>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="item package col-md-4">
-                                    <a href="images/lo1.jpg" title="Boxed Water" class="image-link">
-                                        <img class="portfolio-img" src="images/lo1.jpg" alt="">
-                                        <div class="description">
-                                            <h4>Logo KST Conference 2020</h4>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="item poster col-md-4">
-                                    <a href="images/1_ปก KST_230310.jpg" title="Boxed Water" class="image-link">
-                                        <img class="portfolio-img" src="images/1_ปก KST_230310.jpg" alt="">
-                                        <div class="description">
-                                            <h4>KST 2021</h4>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="item tshirt col-md-4">
-                                    <a href="images/AR6.jpg" title="Boxed Water" class="image-link">
-                                        <img class="portfolio-img" src="images/AR6.jpg" alt="">
-                                        <div class="description">
-                                            <h4>ARCellularNBTC</h4>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="item poster col-md-4">
-                                    <a href="images/Isometric Perspective A3 Poster Mockup_2.jpg" title="Boxed Water"
-                                        class="image-link">
-                                        <img class="portfolio-img"
-                                            src="images/Isometric Perspective A3 Poster Mockup_2.jpg" alt="">
-                                        <div class="description">
-                                            <h4>KST 2022</h4>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="item branding col-md-4">
-                                    <a href="images/VR2.jpg" title="Boxed Water" class="image-link">
-                                        <img class="portfolio-img" src="images/VR2.png" alt="">
-                                        <div class="description">
-                                            <h4>VR Training for EV Assembly</h4>
-                                        </div>
-                                    </a>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </section>
-
-                    <section id="blog">
-
-                        <div class="py-4 my-4 ">
-                            <h1 class="fw-bold">Publications</h1>
-                        </div>
-
-                        <div class="row justify-content-start" data-aos="fade-up">
-                            <div class="col-8">
-                                <div class="data-info  ">
-                                    <p class="meta-date">2023<img src="images/Ellipse 7.png" > <a
-                                            class="open-description">The 19th International Conference on Computing and
-                                            Information Technology (IC2IT 2023)</a></p>
-                                    <h3 class="info-title"><i>"Holistic Evaluation Framework for VR Industrial
-                                            Training"</i></h3>
-
-                                    <p>Srithammee, N., & Jitngernmadan, P. (2023, May).</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr class="mid-break my-2">
-
-                        <div class="row justify-content-start" data-aos="fade-up">
-                            <div class="col-8">
-                                <div class="data-info  ">
-                                    <p class="meta-date">2023<img src="images/Ellipse 7.png" alt=""> <a
-                                            class="open-description">The 11th Asia Undergraduate Conference on Computing
-                                            (AUCC). </a></p>
-                                    <h3 class="info-title"><i>"MIXED VIRTUALITY CPR TRAINING DEVELOPMENT."</i></h3>
-
-                                    <p>Kanangnanon T.,Kraiduang N., Sangnaul J.,Srithammee N. (2023, January).</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr class="mid-break my-2">
-
-                        <div class="row justify-content-start" data-aos="fade-up">
-                            <div class="col-8">
-                                <div class="data-info  ">
-                                    <p class="meta-date">2022<img src="images/Ellipse 7.png" alt=""> <a
-                                            class="open-description">In 2022 13th International Conference on
-                                            Information and Communication Technology Convergence (ICTC) (pp. 412-416).
-                                            IEEE. </a></p>
-                                    <h3 class="info-title"><i>"Increasing Awareness of Cellular Signals on Smartphones
-                                            using Augmented Reality."</i></h3>
-                                    <p>Kanangnanon T.,Kraiduang N., Sangnaul J.,Srithammee N. (2023, January).</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr class="mid-break my-2">
-
-                        <div class="row justify-content-start" data-aos="fade-up">
-                            <div class="col-8">
-                                <div class="data-info  ">
-                                    <p class="meta-date">2019<img src="images/Ellipse 7.png" alt=""> <a
-                                            class="open-description">The 9th Asia Undergraduate Conference on Computing
-                                            (AUCC). </a></p>
-                                    <h3 class="info-title"><i>"Interactive Education Content Design and Development
-                                            Based on Augmented Reality"</i></h3>
-
-                                    <p>Samutrat, T., Srithammee, N., & Jitngernmadan, P. (2019, February).</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section id="contact">
-
-                        <div class="py-4 my-4 ">
-                            <h1 class="fw-bold">Contact</h1>
-                            <p>Please feel free to contact me.</p>
-                        </div>
-
-
-                        <hr class="mid-break my-2">
-
-                        <div class="py-4 my-4 ">
-
-                            <div class="row">
-                                <div class="col-md-4 contact-list">
-                                    <p class="contact-paragraph">
-                                        <iconify-icon icon="mdi:linkedin"></iconify-icon>
-                                        <a href="https://www.linkedin.com/in/nattamon-srithammee-9105a792/" target="_blank">
-                                            LinkedIn Profile
-                                        </a>
-                                    </p>
-                                </div>
-                                
-                                <div class="col-md-4 contact-list">
-                                    <p class="contact-paragraph"><iconify-icon icon="ic:outline-email"></iconify-icon>
-                                        natsrithammee@gmail.com </p>
-                                </div>
-                                <div class="col-md-4 contact-list">
-                                    <p class="contact-paragraph"> <iconify-icon
-                                            icon="ic:outline-location-on"></iconify-icon> Tokyo, Japan</p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="mid-break my-2">
-                    </section>
-                </div>
-            </div>
-
-
-            <div class="col-md-3 offset-md-1">
-                <section class="hero position-fixed">
-                    <div class="container hero-container text-center ">
-
-                        <img src="images/profile.jpg" class="hero-img my-4 rounded-circle" alt="Bootstrap Themes"
-                            width="140" height="140" loading="lazy">
-
-
-                        <h2 class="fw-bold mt-3">Nattamon Srithammee</h2>
-                        <p>Innovative AR/VR Developer with expertise in Web Design, Graphic Design, and Data Science, blending creativity with technical acumen to craft engaging and impactful user experiences.
-                        </p>
-                        <div class="social-icon my-4">
-                            <p>
-                                <a class="social-link active" href="https://github.com/babyboch" target="_blank">
-                                    <iconify-icon icon="icomoon-free:github"></iconify-icon>
-                                </a>
-                                <a class="social-link active" href="https://www.linkedin.com/in/nattamon-srithammee-9105a792/" target="_blank">
-                                    <iconify-icon icon="mdi:linkedin"></iconify-icon>
-                                </a>
-                            </p>
-                        </div>
-                        
-                    </div>
-                </section>
-            </div>
-
+<body>
+
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <nav class="sidenav" aria-label="Page sections">
+    <div class="sidenav__line"></div>
+    <a href="#home" class="active" data-section="home"><span>Home</span></a>
+    <a href="#about" data-section="about"><span>About</span></a>
+    <a href="#experience" data-section="experience"><span>Experience</span></a>
+    <a href="#education" data-section="education"><span>Education</span></a>
+    <a href="#certifications" data-section="certifications"><span>Certs</span></a>
+    <a href="#awards" data-section="awards"><span>Awards</span></a>
+    <a href="#portfolio" data-section="portfolio"><span>Portfolio</span></a>
+    <a href="#publications" data-section="publications"><span>Research</span></a>
+    <a href="#contact" data-section="contact"><span>Contact</span></a>
+    <div class="sidenav__line"></div>
+  </nav>
+
+  <div class="page">
+
+    <!-- HERO -->
+    <section id="home">
+      <div class="hero__eyebrow fade-up delay-1">Ph.D. Candidate · Tokyo Metropolitan University</div>
+      <h1 class="hero__name fade-up delay-2">Nattamon<br><em>Srithammee</em></h1>
+      <p class="hero__tagline fade-up delay-3">AR/VR Developer & Researcher specialising in multimodal perception, immersive systems, and data-driven behavioural analysis — bridging spatial computing, human perception, and intelligent interaction design.</p>
+      <div class="hero__tags fade-up delay-4">
+        <span class="tag">Unity / C#</span>
+        <span class="tag">AR Development</span>
+        <span class="tag">VR Research</span>
+        <span class="tag">UX Design</span>
+        <span class="tag">Python</span>
+        <span class="tag">MATLAB</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">3D Modelling</span>
+        <span class="tag">Angular</span>
+        <span class="tag">Git / CI/CD</span>
+      </div>
+      <div class="hero__meta fade-up delay-5">
+        <div class="hero__meta-item">
+          <span class="hero__meta-label">Location</span>
+          <span class="hero__meta-value">Tokyo, Japan</span>
         </div>
-    </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-label">Status</span>
+          <span class="hero__meta-value">Open to Work</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-label">Research</span>
+          <span class="hero__meta-value">Audio UX in VR</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-label">Availability</span>
+          <span class="hero__meta-value">Immediate</span>
+        </div>
+      </div>
+      <div class="hero__scroll fade-up delay-5">Scroll</div>
+      <div class="hero__actions fade-up delay-5">
+        <a href="#contact" class="btn-primary">Get In Touch</a>
+        <a href="Nattamon_CV.pdf" class="btn-secondary" download>↓ Download CV</a>
+        <a href="https://github.com/babyboch" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub ↗</a>
+      </div>
+    </section>
 
-    <script src="js/jquery-1.11.0.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Researcher.<br>Developer. Designer.</h2>
+      <p class="about__body">
+        I am a <strong>Ph.D. student in Computer Science</strong> at Tokyo Metropolitan University (Year 2), researching how audio design shapes user experience in virtual reality. My work sits at the intersection of <strong>immersive technology, perceptual psychology, and interaction design</strong> — with applications in smart environments and connected spaces.<br><br>
+        With hands-on experience in AR/VR development, UX research, Unity/C#, and data science, I bring both engineering depth and human-centred thinking to every project. Originally from Thailand, I am now based in Tokyo and actively seeking <strong>full-time opportunities</strong> in AR/VR development, UX research, or software engineering roles — particularly in environments where technology meets real human experience.
+      </p>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h4>XR Development</h4>
+          <ul>
+            <li>Unity 3D / C#</li>
+            <li>AR Foundation</li>
+            <li>VR Interaction</li>
+            <li>Blender 3D</li>
+            <li>Spatial Audio</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Design & UX</h4>
+          <ul>
+            <li>UX Research</li>
+            <li>Figma / Prototyping</li>
+            <li>User Testing</li>
+            <li>Adobe Creative Suite</li>
+            <li>Information Design</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Engineering & Data</h4>
+          <ul>
+            <li>Python / MATLAB</li>
+            <li>NumPy · Pandas · SciPy</li>
+            <li>Scikit-learn / ML Modelling</li>
+            <li>Sensor & Motion Data Analysis</li>
+            <li>Git / GitHub / CI/CD</li>
+            <li>AWS Cloud</li>
+          </ul>
+        </div>
+      </div>
+      <div class="about__extras">
+        <div>
+          <h4 class="extras__heading">Languages</h4>
+          <div class="lang-list">
+            <div class="lang-row">
+              <span class="lang-name">Thai</span>
+              <span class="lang-level">Native</span>
+            </div>
+            <div class="lang-bar"><div class="lang-bar__fill" style="width:100%"></div></div>
+            <div class="lang-row">
+              <span class="lang-name">English</span>
+              <span class="lang-level">Professional</span>
+            </div>
+            <div class="lang-bar"><div class="lang-bar__fill" style="width:85%"></div></div>
+            <div class="lang-row">
+              <span class="lang-name">Japanese</span>
+              <span class="lang-level lang-level--accent">Beginner · Learning</span>
+            </div>
+            <div class="lang-bar"><div class="lang-bar__fill lang-bar__fill--accent" style="width:18%"></div></div>
+          </div>
+        </div>
+        <div>
+          <h4 class="extras__heading">Work Eligibility · Japan</h4>
+          <div class="eligibility-body">
+            <p>📍 Based in <strong>Tokyo, Japan</strong></p>
+            <p>🎓 Status: <strong>Student Visa</strong></p>
+            <p>✅ Eligible to convert to <strong>Work Visa</strong> upon graduation</p>
+            <p class="eligibility-note">Open to visa sponsorship from prospective employers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-label">Experience</div>
+      <h2 class="section-title">Work History</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">May 2023 — Nov 2023</div>
+          <div class="timeline-org">NetDesign Host Co.</div>
+          <div class="timeline-title">Private Teacher (Contractor)</div>
+          <div class="timeline-desc">Delivered private and group instruction across multiple technical disciplines:
+            <ul>
+              <li>Computer Art & Graphic Design</li>
+              <li>Python for Beginners</li>
+              <li>3D Modelling with Blender 3.5</li>
+              <li>Illustrator for Infographic Design</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Jun 2023 — Feb 2024</div>
+          <div class="timeline-org">Veeva Systems Inc.</div>
+          <div class="timeline-title">Data Steward (Contractor)</div>
+          <div class="timeline-desc">Web research and data entry for global pharmaceutical data platform.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2020 — 2023</div>
+          <div class="timeline-org">Faculty of Informatics, Burapha University</div>
+          <div class="timeline-title">Teaching Assistant</div>
+          <div class="timeline-desc">Assisted across 7 subjects totalling 356+ hours:
+            <ul>
+              <li>Augmented and Virtual Reality (48 hrs)</li>
+              <li>UI/UX Design (74 hrs)</li>
+              <li>Game Development (48 hrs)</li>
+              <li>Natural Language Processing (90 hrs)</li>
+              <li>Business Intelligence & Data Visualisation (22 hrs)</li>
+              <li>Programming Fundamentals (48 hrs)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2019 — 2020</div>
+          <div class="timeline-org">Protoss Technology Co., Ltd.</div>
+          <div class="timeline-title">Software Developer (Internship)</div>
+          <div class="timeline-desc">
+            <ul>
+              <li>Designed web pages using the Angular framework</li>
+              <li>Built UI components with Angular Material and FullCalendar</li>
+              <li>Created graphics with Adobe Photoshop and Illustrator</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="section-label">Education</div>
+      <h2 class="section-title">Academic Background</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2024 — Present</div>
+          <div class="timeline-org">Tokyo Metropolitan University, Japan</div>
+          <div class="timeline-title">Ph.D., Computer Science</div>
+          <div class="timeline-desc">Faculty of Systems Design · Doctoral Course (Year 2)<br><em>Thesis: A Study on the Influence of Audio on User Experience in Virtual Reality</em></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2020 — 2023</div>
+          <div class="timeline-org">Burapha University, Thailand</div>
+          <div class="timeline-title">M.Sc., Data Science</div>
+          <div class="timeline-desc"><em>Thesis: Assessment Framework Development for Industrial Training with Virtual Reality</em></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2016 — 2019</div>
+          <div class="timeline-org">Burapha University, Thailand</div>
+          <div class="timeline-title">B.Sc., Information Technology</div>
+          <div class="timeline-desc">Information Technology for Digital Industry<br><em>Topic: Course Training Registration UI Design and Employee Leave System Development</em></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <div class="section-label">Certifications</div>
+      <h2 class="section-title">Credentials</h2>
+      <div class="cert-grid">
+        <a href="https://www.credly.com/badges/a813b3d5-0536-4c19-9981-e1f60d2f39dd" target="_blank" rel="noopener noreferrer" class="cert-item">
+          <div class="cert-main"><div class="cert-title">Unity Certified User: Programmer</div><div class="cert-issuer">Unity Technologies</div></div>
+          <div class="cert-date">Mar 2022</div><div class="cert-arrow">↗</div>
+        </a>
+        <a href="https://www.coursera.org/account/accomplishments/certificate/YXPC3WXBHV64" target="_blank" rel="noopener noreferrer" class="cert-item">
+          <div class="cert-main"><div class="cert-title">Build Wireframes and Low-Fidelity Prototypes</div><div class="cert-issuer">Coursera · Google UX Design</div></div>
+          <div class="cert-date">Mar 2023</div><div class="cert-arrow">↗</div>
+        </a>
+        <a href="https://www.coursera.org/account/accomplishments/verify/LP3ET8SJBPNV" target="_blank" rel="noopener noreferrer" class="cert-item">
+          <div class="cert-main"><div class="cert-title">Start the UX Design Process: Empathize, Define, Ideate</div><div class="cert-issuer">Coursera · Google UX Design</div></div>
+          <div class="cert-date">Mar 2023</div><div class="cert-arrow">↗</div>
+        </a>
+        <a href="https://www.coursera.org/account/accomplishments/certificate/C6GJFHB8HL5K" target="_blank" rel="noopener noreferrer" class="cert-item">
+          <div class="cert-main"><div class="cert-title">Foundations of User Experience (UX) Design</div><div class="cert-issuer">Coursera · Google UX Design</div></div>
+          <div class="cert-date">Jan 2023</div><div class="cert-arrow">↗</div>
+        </a>
+        <a href="https://www.credly.com/badges/666f8809-d542-458a-8d6f-0998b160b00b" target="_blank" rel="noopener noreferrer" class="cert-item">
+          <div class="cert-main"><div class="cert-title">AWS Academy Cloud Foundations</div><div class="cert-issuer">AWS Academy</div></div>
+          <div class="cert-date">2022</div><div class="cert-arrow">↗</div>
+        </a>
+        <a href="https://www.sololearn.com/Certificate/CT-3V7BKN6P/pdf" target="_blank" rel="noopener noreferrer" class="cert-item">
+          <div class="cert-main"><div class="cert-title">Data Science with Python</div><div class="cert-issuer">Sololearn</div></div>
+          <div class="cert-date">Nov 2020</div><div class="cert-arrow">↗</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section id="awards">
+      <div class="section-label">Recognition</div>
+      <h2 class="section-title">Awards & Competitions</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2023</div>
+          <div class="timeline-org">
+            <a href="https://www.phoenixcontact.com/assets/1e807f9b-d3ad-4e14-ae2d-77c5ec892d14/index.html#54" target="_blank" rel="noopener noreferrer">Phoenix Contact · xplore Technology Award for a Sustainable World ↗</a>
+          </div>
+          <div class="timeline-title">🏅 4th Place — International Competition</div>
+          <div class="timeline-desc">
+            <strong>Project: VR@Train — PLCnext VR Training System</strong><br>
+            Representing Burapha University, Thailand. Developed a VR-based industrial training platform simulating real PLCnext automation environments for hands-on learning. Applied sophisticated didactics strategy to simplify complex Industry 4.0 concepts, with immediate feedback to accelerate skill acquisition.
+            <div class="timeline-meta">50+ countries · International finalist · Bad Pyrmont, Germany</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="section-label">Portfolio</div>
+      <h2 class="section-title">Selected Work</h2>
+      <div class="pf-filters">
+        <button class="pf-btn active" data-filter="all">All</button>
+        <button class="pf-btn" data-filter="vr">VR Training</button>
+        <button class="pf-btn" data-filter="ar">AR</button>
+        <button class="pf-btn" data-filter="logo">Logo</button>
+        <button class="pf-btn" data-filter="poster">Poster</button>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <div class="portfolio-card" data-cat="vr"><img src="images/VR.jpg" alt="VR Training for EV Assembly"><div class="portfolio-card__overlay"><div class="portfolio-card__cat">VR Development</div><div class="portfolio-card__title">VR Training for EV Assembly</div></div></div>
+        <div class="portfolio-card" data-cat="vr"><img src="images/VR2.png" alt="VR Training II"><div class="portfolio-card__overlay"><div class="portfolio-card__cat">VR Development</div><div class="portfolio-card__title">VR Training for EV Assembly II</div></div></div>
+        <div class="portfolio-card" data-cat="ar"><img src="images/AR.jpg" alt="ARCellularNBTC"><div class="portfolio-card__overlay"><div class="portfolio-card__cat">AR Development</div><div class="portfolio-card__title">ARCellularNBTC</div></div></div>
+        <div class="portfolio-card" data-cat="ar"><img src="images/AR6.jpg" alt="ARCellularNBTC 2"><div class="portfolio-card__overlay"><div class="portfolio-card__cat">AR Development</div><div class="portfolio-card__title">ARCellularNBTC — Detail View</div></div></div>
+        <div class="portfolio-card" data-cat="logo"><img src="images/lo1.jpg" alt="Logo KST 2020"><div class="portfolio-card__overlay"><div class="portfolio-card__cat">Logo Design</div><div class="portfolio-card__title">KST Conference Logo 2020</div></div></div>
+        <div class="portfolio-card" data-cat="poster"><img src="images/Isometric Perspective A3 Poster Mockup.jpg" alt="KST 2023"><div class="portfolio-card__overlay"><div class="portfolio-card__cat">Poster Design</div><div class="portfolio-card__title">KST Conference 2023</div></div></div>
+        <div class="portfolio-card" data-cat="poster"><img src="images/Isometric Perspective A3 Poster Mockup_2.jpg" alt="KST 2022"><div class="portfolio-card__overlay"><div class="portfolio-card__cat">Poster Design</div><div class="portfolio-card__title">KST Conference 2022</div></div></div>
+        <div class="portfolio-card" data-cat="poster"><img src="images/LINE_ALBUM_KST2022_230310.jpg" alt="KST 2022 Album"><div class="portfolio-card__overlay"><div class="portfolio-card__cat">Poster Design</div><div class="portfolio-card__title">KST 2022 — Album</div></div></div>
+        <div class="portfolio-card" data-cat="poster"><img src="images/6_ปก KST_230310.jpg" alt="KST 2021"><div class="portfolio-card__overlay"><div class="portfolio-card__cat">Poster Design</div><div class="portfolio-card__title">KST Conference 2021</div></div></div>
+        <div class="portfolio-card" data-cat="poster"><img src="images/5_ปก KST_230310.jpg" alt="KST 2021 B"><div class="portfolio-card__overlay"><div class="portfolio-card__cat">Poster Design</div><div class="portfolio-card__title">KST 2021 — Cover B</div></div></div>
+        <div class="portfolio-card" data-cat="poster"><img src="images/1_ปก KST_230310.jpg" alt="KST 2021 A"><div class="portfolio-card__overlay"><div class="portfolio-card__cat">Poster Design</div><div class="portfolio-card__title">KST 2021 — Cover A</div></div></div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <div class="section-label">Research</div>
+      <h2 class="section-title">Publications</h2>
+      <div class="pub-list">
+        <div class="pub-item">
+          <div class="pub-year">2026</div>
+          <div>
+            <div class="pub-venue">KST 2026 — IEEE 18th Int'l Conference on Knowledge and Smart Technology <span class="pub-badge">In Press</span></div>
+            <div class="pub-title">"Quantifying Audio Motion Coupling in Virtual Reality through Gaze and Head Dynamics"</div>
+            <div class="pub-authors">Srithammee, N., Pannattee, P., Serizawa, M., Fukuchi, Y., & Nishiuchi, N.</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-year">2025</div>
+          <div>
+            <div class="pub-venue">KST 2025 — IEEE 17th Int'l Conference on Knowledge and Smart Technology</div>
+            <div class="pub-title">"Investigating the Impact of Sound Design on User Experience in Virtual Reality"</div>
+            <div class="pub-authors">Srithammee, N., Pannattee, P., Fukuchi, Y., & Nishiuchi, N.</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-year">2025</div>
+          <div>
+            <div class="pub-venue">ECTI-CIT — ECTI Transactions on Computer and Information Technology, Vol. 19(2)</div>
+            <div class="pub-title">"Augmented Reality as a Tool for Enhancing Geometry Learning and Improving Mathematical Understanding"</div>
+            <div class="pub-authors">Chonchaiya, R., & Srithammee, N.</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-year">2024</div>
+          <div>
+            <div class="pub-venue">JCSSE 2024 — IEEE 21st Int'l Joint Conference on Computer Science and Software Engineering</div>
+            <div class="pub-title">"Towards 3D Serious Game Simulation for Military Training"</div>
+            <div class="pub-authors">Kubola, K., Jantarakongkul, B., Kongon, B., Kanangnanon, T., Srithammee, N., & Jitngernmadan, P.</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-year">2023</div>
+          <div>
+            <div class="pub-venue">IC2IT 2023 — 19th Int'l Conference on Computing and Information Technology · Springer Nature</div>
+            <div class="pub-title">"Holistic Evaluation Framework for VR Industrial Training"</div>
+            <div class="pub-authors">Srithammee, N., & Jitngernmadan, P.</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-year">2023</div>
+          <div>
+            <div class="pub-venue">REV 2023 — Int'l Conference on Remote Engineering and Virtual Instrumentation · Springer</div>
+            <div class="pub-title">"VR Training Effectiveness Evaluation Based on Activity Data Analysis"</div>
+            <div class="pub-authors">Kubola, K., Jantarakongkul, B., Boonmee, P., Srithammee, N., Fongsamut, C., & Jitngernmadan, P.</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-year">2023</div>
+          <div>
+            <div class="pub-venue">AUCC 2023 — 11th Asia Undergraduate Conference on Computing</div>
+            <div class="pub-title">"Mixed Virtuality CPR Training Development"</div>
+            <div class="pub-authors">Kanangnanon T., Kraiduang N., Sangnaul J., Srithammee N.</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-year">2022</div>
+          <div>
+            <div class="pub-venue">ICTC 2022 — IEEE 13th Int'l Conference on ICT Convergence</div>
+            <div class="pub-title">"Increasing Awareness of Cellular Signals on Smartphones using Augmented Reality"</div>
+            <div class="pub-authors">Srithammee, N., Jantarakongkul, B., Kubola, K., & Jitngernmadan, P.</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-year">2019</div>
+          <div>
+            <div class="pub-venue">AUCC 2019 — 9th Asia Undergraduate Conference on Computing</div>
+            <div class="pub-title">"Interactive Education Content Design and Development Based on Augmented Reality"</div>
+            <div class="pub-authors">Samutrat, T., Srithammee, N., & Jitngernmadan, P.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="contact-intro">Currently open to full-time opportunities in Japan. Please don't hesitate to reach out.</p>
+      <div class="contact-grid">
+        <a href="mailto:nattamon.srithammee@gmail.com" class="contact-cell">
+          <div class="contact-cell__label">Email</div>
+          <div class="contact-cell__value">nattamon.srithammee@gmail.com</div>
+        </a>
+        <a href="https://www.linkedin.com/in/nattamon-srithammee-9105a792/" target="_blank" rel="noopener noreferrer" class="contact-cell">
+          <div class="contact-cell__label">LinkedIn</div>
+          <div class="contact-cell__value">nattamon-srithammee</div>
+        </a>
+        <a href="https://github.com/babyboch" target="_blank" rel="noopener noreferrer" class="contact-cell">
+          <div class="contact-cell__label">GitHub</div>
+          <div class="contact-cell__value">github.com/babyboch</div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer><p>© 2026 Nattamon Srithammee &nbsp;·&nbsp; Tokyo, Japan</p></footer>
+
+  <script>
+    // Custom cursor — pointer devices only
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    if (window.matchMedia('(hover: hover)').matches) {
+      let mx = 0, my = 0, rx = 0, ry = 0;
+      document.addEventListener('mousemove', e => {
+        mx = e.clientX; my = e.clientY;
+        cursor.style.left = mx + 'px';
+        cursor.style.top = my + 'px';
+      });
+      (function loop() {
+        rx += (mx - rx) * 0.12;
+        ry += (my - ry) * 0.12;
+        ring.style.left = rx + 'px';
+        ring.style.top = ry + 'px';
+        requestAnimationFrame(loop);
+      })();
+    }
+
+    // Side nav active state
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.sidenav a');
+    sections.forEach(s => new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const a = document.querySelector(`.sidenav a[data-section="${e.target.id}"]`);
+          if (a) a.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 }).observe(s));
+
+    // Scroll reveal
+    const ro = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          ro.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.timeline-item, .pub-item').forEach(el => ro.observe(el));
+
+    // Portfolio filter
+    const pfBtns = document.querySelectorAll('.pf-btn');
+    const pfCards = document.querySelectorAll('.portfolio-card[data-cat]');
+    pfBtns.forEach(btn => btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      pfBtns.forEach(b => b.classList.toggle('active', b === btn));
+      pfCards.forEach(c => { c.hidden = filter !== 'all' && c.dataset.cat !== filter; });
+    }));
+  </script>
 </body>
-
 </html>
