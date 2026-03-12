@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Nattamon Srithammee — Ph.D. Candidate at Tokyo Metropolitan University. AR/VR Developer & Researcher specialising in multimodal perception, immersive systems, and human-centred interaction design.">
   <title>Nattamon Srithammee — AR/VR Developer & Researcher</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23111114'/><text x='16' y='22' font-family='monospace' font-size='18' font-weight='700' fill='%23FFF8F0' text-anchor='middle'>N</text></svg>">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://babyboch.github.io/Portfolio/">
+  <meta property="og:title" content="Nattamon Srithammee — AR/VR Developer & Researcher">
+  <meta property="og:description" content="Ph.D. Candidate at Tokyo Metropolitan University. Specialising in multimodal perception, immersive systems, and human-centred interaction design.">
+  <meta property="og:image" content="https://babyboch.github.io/Portfolio/images/VR.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nattamon Srithammee — AR/VR Developer & Researcher">
+  <meta name="twitter:description" content="Ph.D. Candidate at Tokyo Metropolitan University. Specialising in multimodal perception, immersive systems, and human-centred interaction design.">
+  <meta name="twitter:image" content="https://babyboch.github.io/Portfolio/images/VR.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -124,9 +140,17 @@
       margin-bottom: 1.5rem;
     }
     .hero__name em { font-style: normal; color: var(--accent); }
+    .hero__subtitle {
+      font-size: 0.95rem; color: var(--ink-light);
+      margin-bottom: 2rem; letter-spacing: 0.01em;
+    }
+    .hero__research {
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-faint); font-family: var(--mono); margin-bottom: 1.25rem;
+    }
     .hero__tagline {
       font-size: 1rem; color: var(--ink-light);
-      max-width: 480px; line-height: 1.8; margin-bottom: 3rem;
+      max-width: 520px; line-height: 1.8; margin-bottom: 3rem;
     }
     .hero__tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 3rem; }
     .tag {
@@ -167,6 +191,112 @@
       50% { width: 80px; opacity: 0.4; }
     }
     .hero__actions { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+
+    /* ── RESEARCH HIGHLIGHT ── */
+    .research-statement {
+      font-size: 1.05rem; color: var(--ink-light);
+      line-height: 1.9; max-width: 620px; margin-bottom: 2.5rem;
+    }
+    .research-statement strong { color: var(--ink); }
+    .research-card {
+      border: 1px solid var(--rule-bright);
+      border-left: 3px solid var(--accent);
+      padding: 2.5rem;
+      background: var(--paper-card);
+      border-radius: 0 4px 4px 0;
+    }
+    .research-card__header {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 1rem;
+      flex-wrap: wrap; margin-bottom: 1.25rem;
+    }
+    .research-card__type {
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); font-family: var(--mono);
+    }
+    .research-card__status {
+      font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--paper); background: var(--accent);
+      padding: 0.2rem 0.6rem; font-family: var(--mono); white-space: nowrap;
+    }
+    .research-card__title {
+      font-size: 1.3rem; font-weight: 600; line-height: 1.45;
+      margin-bottom: 1.25rem; letter-spacing: -0.01em;
+    }
+    .research-card__body {
+      font-size: 0.9rem; color: var(--ink-light);
+      line-height: 1.85; margin-bottom: 1.5rem; max-width: 580px;
+    }
+    .research-card__areas { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .research-card__area {
+      font-size: 0.68rem; letter-spacing: 0.06em;
+      padding: 0.25rem 0.7rem;
+      border: 1px solid var(--rule-bright);
+      color: var(--ink-faint); font-family: var(--mono); border-radius: 2px;
+    }
+    .research-impact {
+      margin: 2rem -2.5rem -2.5rem;
+      border-top: 1px solid var(--rule);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--rule);
+      border-radius: 0 0 4px 4px; overflow: hidden;
+    }
+    .impact-stat {
+      background: var(--paper-card);
+      padding: 1.25rem 1.5rem;
+      display: flex; flex-direction: column; gap: 0.35rem;
+      text-decoration: none; transition: background 0.2s;
+    }
+    a.impact-stat:hover { background: var(--paper-warm); }
+    .impact-num {
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--ink); line-height: 1; font-family: var(--mono);
+    }
+    .impact-num--icon { font-size: 1rem; color: var(--accent); }
+    .impact-label {
+      font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-faint); font-family: var(--mono);
+    }
+    @media (max-width: 480px) {
+      .research-impact { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── TECH STACK ── */
+    .stack-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .stack-group__label { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); font-family: var(--mono); margin-bottom: 0.75rem; display: block; }
+    .stack-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .stack-chip { font-size: 0.75rem; padding: 0.3rem 0.75rem; border: 1px solid var(--rule); color: var(--ink-light); font-family: var(--mono); border-radius: 2px; transition: border-color 0.2s, color 0.2s; }
+    .stack-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── FEATURED PROJECTS ── */
+    .featured-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .featured-card { display: grid; grid-template-columns: 260px 1fr; border: 1px solid var(--rule-bright); background: var(--paper-card); overflow: hidden; border-radius: 4px; }
+    .featured-card__img { overflow: hidden; }
+    .featured-card__img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(.25,.46,.45,.94); }
+    .featured-card:hover .featured-card__img img { transform: scale(1.04); }
+    .featured-card__body { padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1rem; }
+    .featured-card__num { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); font-family: var(--mono); margin-bottom: 0.4rem; }
+    .featured-card__title { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; line-height: 1.4; }
+    .featured-card__desc { font-size: 0.86rem; color: var(--ink-light); line-height: 1.75; margin-bottom: 0.75rem; }
+    .featured-card__tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+    .featured-card__tag { font-size: 0.65rem; padding: 0.2rem 0.6rem; border: 1px solid var(--rule-bright); color: var(--ink-faint); font-family: var(--mono); border-radius: 2px; }
+
+    /* ── RESEARCH FIGURES ── */
+    .figures-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .figure-card { border: 1px solid var(--rule-bright); border-radius: 4px; overflow: hidden; background: var(--paper-card); }
+    .figure-card__img { width: 100%; aspect-ratio: 4/3; background: var(--paper-warm); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .figure-card__img img { width: 100%; height: 100%; object-fit: contain; }
+    .figure-card__placeholder { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rule-bright); font-family: var(--mono); }
+    .figure-card__caption { padding: 1rem 1.25rem; }
+    .figure-card__num { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-family: var(--mono); margin-bottom: 0.3rem; }
+    .figure-card__title { font-size: 0.88rem; font-weight: 500; margin-bottom: 0.25rem; line-height: 1.4; }
+    .figure-card__source { font-size: 0.72rem; color: var(--ink-faint); font-family: var(--mono); }
+    @media (max-width: 768px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-card__img { height: 200px; }
+      .stack-grid { grid-template-columns: 1fr 1fr; }
+      .figures-grid { grid-template-columns: 1fr; }
+    }
 
     /* ── BUTTONS ── */
     .btn-primary, .btn-secondary, .btn-ghost {
@@ -359,9 +489,10 @@
 
     <!-- HERO -->
     <section id="home">
-      <div class="hero__eyebrow fade-up delay-1">Ph.D. Candidate · Tokyo Metropolitan University</div>
-      <h1 class="hero__name fade-up delay-2">Nattamon<br><em>Srithammee</em></h1>
-      <p class="hero__tagline fade-up delay-3">AR/VR Developer & Researcher specialising in multimodal perception, immersive systems, and data-driven behavioural analysis — bridging spatial computing, human perception, and intelligent interaction design.</p>
+      <h1 class="hero__name fade-up delay-1">Nattamon Srithammee</h1>
+      <div class="hero__subtitle fade-up delay-2">PhD Candidate – Tokyo Metropolitan University</div>
+      <div class="hero__research fade-up delay-3">Research: Virtual Reality · Spatial Audio · Human Behavior</div>
+      <p class="hero__tagline fade-up delay-4">My research investigates how sound design influences perception, movement behavior, and user experience in immersive environments.</p>
       <div class="hero__tags fade-up delay-4">
         <span class="tag">Unity / C#</span>
         <span class="tag">AR Development</span>
@@ -400,13 +531,59 @@
       </div>
     </section>
 
+    <!-- RESEARCH HIGHLIGHT -->
+    <section id="research-highlight">
+      <div class="section-label">Current Research</div>
+      <p class="research-statement">
+        My research investigates how <strong>spatial audio design</strong> shapes human perception, movement, and experience in virtual reality. Using multimodal measurement — gaze tracking, head dynamics, and physiological signals — I work to establish empirical foundations for audio-driven immersion and presence. The broader goal is to advance <strong>evidence-based principles</strong> for designing VR environments that engage the full sensory system.
+      </p>
+      <div class="research-card">
+        <div class="research-card__header">
+          <span class="research-card__type">Ph.D. Thesis · Tokyo Metropolitan University</span>
+          <span class="research-card__status">In Progress</span>
+        </div>
+        <h2 class="research-card__title">A Study on the Influence of Audio on<br>User Experience in Virtual Reality</h2>
+        <p class="research-card__body">
+          How does sound shape what we perceive, how we move, and how immersed we feel in virtual environments? This research applies multimodal measurement — gaze tracking, head movement dynamics, physiological signals, and subjective ratings — to quantify the perceptual and behavioural effects of spatial audio design in VR.
+        </p>
+        <div class="research-card__areas">
+          <span class="research-card__area">Spatial Audio</span>
+          <span class="research-card__area">Gaze Behavior</span>
+          <span class="research-card__area">Head Dynamics</span>
+          <span class="research-card__area">Presence & Immersion</span>
+          <span class="research-card__area">VR User Experience</span>
+          <span class="research-card__area">Multimodal Perception</span>
+        </div>
+        <div class="research-impact">
+          <a href="#publications" class="impact-stat">
+            <span class="impact-num">9</span>
+            <span class="impact-label">Publications</span>
+          </a>
+          <a href="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Nattamon+Srithammee&oq=natta" target="_blank" rel="noopener noreferrer" class="impact-stat">
+            <span class="impact-num impact-num--icon">↗</span>
+            <span class="impact-label">Citations</span>
+          </a>
+          <a href="https://github.com/babyboch/Raw-data-KST-2026" target="_blank" rel="noopener noreferrer" class="impact-stat">
+            <span class="impact-num">1</span>
+            <span class="impact-label">Dataset</span>
+          </a>
+          <a href="https://github.com/babyboch" target="_blank" rel="noopener noreferrer" class="impact-stat">
+            <span class="impact-num impact-num--icon">↗</span>
+            <span class="impact-label">Code</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ABOUT -->
     <section id="about">
       <div class="section-label">About</div>
-      <h2 class="section-title">Researcher.<br>Developer. Designer.</h2>
+      <h2 class="section-title">Researcher,<br>Developer, Designer,</h2>
       <p class="about__body">
-        I am a <strong>Ph.D. student in Computer Science</strong> at Tokyo Metropolitan University (Year 2), researching how audio design shapes user experience in virtual reality. My work sits at the intersection of <strong>immersive technology, perceptual psychology, and interaction design</strong> — with applications in smart environments and connected spaces.<br><br>
-        With hands-on experience in AR/VR development, UX research, Unity/C#, and data science, I bring both engineering depth and human-centred thinking to every project. Originally from Thailand, I am now based in Tokyo and actively seeking <strong>full-time opportunities</strong> in AR/VR development, UX research, or software engineering roles — particularly in environments where technology meets real human experience.
+        I study how sound shapes the way people perceive, move, and feel inside virtual worlds — a question that sounds simple, but gets complicated fast.<br><br>
+        Two years into my <strong>Ph.D. at Tokyo Metropolitan University</strong>, I'm building experiments around gaze tracking, head dynamics, and spatial audio to understand what actually drives immersion in VR. The work sits somewhere between perceptual psychology and spatial computing, which is exactly where I want to be.<br><br>
+        Before coming to Tokyo, I built AR applications, developed VR training platforms, and taught everything from game development to machine learning at Burapha University in Thailand. That background in <strong>making things</strong> — not just studying them — shapes how I approach every research question.<br><br>
+        I'm looking for roles where I can bring both sides together: rigorous thinking and hands-on building, in <strong>AR/VR development, UX research, or human-centred software engineering</strong>.
       </p>
       <div class="skills-grid">
         <div class="skill-group">
@@ -469,6 +646,57 @@
             <p>🎓 Status: <strong>Student Visa</strong></p>
             <p>✅ Eligible to convert to <strong>Work Visa</strong> upon graduation</p>
             <p class="eligibility-note">Open to visa sponsorship from prospective employers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section id="tech-stack">
+      <div class="section-label">Tools & Technologies</div>
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="stack-grid">
+        <div>
+          <span class="stack-group__label">XR & Spatial Computing</span>
+          <div class="stack-chips">
+            <span class="stack-chip">Unity 3D</span>
+            <span class="stack-chip">C# / .NET</span>
+            <span class="stack-chip">AR Foundation</span>
+            <span class="stack-chip">Meta XR SDK</span>
+            <span class="stack-chip">OpenXR</span>
+            <span class="stack-chip">Blender 3D</span>
+            <span class="stack-chip">Spatial Audio</span>
+          </div>
+        </div>
+        <div>
+          <span class="stack-group__label">Data Science & ML</span>
+          <div class="stack-chips">
+            <span class="stack-chip">Python</span>
+            <span class="stack-chip">NumPy</span>
+            <span class="stack-chip">Pandas</span>
+            <span class="stack-chip">SciPy</span>
+            <span class="stack-chip">Scikit-learn</span>
+            <span class="stack-chip">MATLAB</span>
+            <span class="stack-chip">Jupyter</span>
+          </div>
+        </div>
+        <div>
+          <span class="stack-group__label">Design & Prototyping</span>
+          <div class="stack-chips">
+            <span class="stack-chip">Figma</span>
+            <span class="stack-chip">Adobe Illustrator</span>
+            <span class="stack-chip">Adobe Photoshop</span>
+            <span class="stack-chip">Canva</span>
+          </div>
+        </div>
+        <div>
+          <span class="stack-group__label">Dev & Infrastructure</span>
+          <div class="stack-chips">
+            <span class="stack-chip">Angular</span>
+            <span class="stack-chip">TypeScript</span>
+            <span class="stack-chip">Git</span>
+            <span class="stack-chip">GitHub Actions</span>
+            <span class="stack-chip">AWS</span>
           </div>
         </div>
       </div>
@@ -606,6 +834,72 @@
       </div>
     </section>
 
+    <!-- FEATURED PROJECTS -->
+    <section id="featured-projects">
+      <div class="section-label">Featured Projects</div>
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="featured-list">
+        <div class="featured-card">
+          <div class="featured-card__img">
+            <img src="images/VR.jpg" alt="VR@Train — PLCnext VR Training System">
+          </div>
+          <div class="featured-card__body">
+            <div>
+              <div class="featured-card__num">01 — VR Development</div>
+              <h3 class="featured-card__title">VR@Train — Industrial VR Training System</h3>
+              <p class="featured-card__desc">A VR platform simulating PLCnext automation environments for hands-on industrial training. Applied didactic strategies to simplify Industry 4.0 concepts with real-time performance feedback. Awarded 4th place internationally at the Phoenix Contact xplore Technology Award 2023 across 50+ countries.</p>
+              <div class="featured-card__tags">
+                <span class="featured-card__tag">Unity</span>
+                <span class="featured-card__tag">C#</span>
+                <span class="featured-card__tag">PLCnext</span>
+                <span class="featured-card__tag">VR Interaction</span>
+                <span class="featured-card__tag">Industry 4.0</span>
+              </div>
+            </div>
+            <div><a href="https://www.phoenixcontact.com/assets/1e807f9b-d3ad-4e14-ae2d-77c5ec892d14/index.html#54" target="_blank" rel="noopener noreferrer" class="btn-secondary">Award ↗</a></div>
+          </div>
+        </div>
+        <div class="featured-card">
+          <div class="featured-card__img">
+            <img src="images/AR.jpg" alt="ARCellularNBTC">
+          </div>
+          <div class="featured-card__body">
+            <div>
+              <div class="featured-card__num">02 — AR Development</div>
+              <h3 class="featured-card__title">ARCellularNBTC — Signal Awareness in AR</h3>
+              <p class="featured-card__desc">An AR mobile application that overlays real-time cellular signal strength as spatial visualizations, enabling users to intuitively understand network coverage in their physical environment. Published at IEEE ICTC 2022.</p>
+              <div class="featured-card__tags">
+                <span class="featured-card__tag">Unity</span>
+                <span class="featured-card__tag">AR Foundation</span>
+                <span class="featured-card__tag">C#</span>
+                <span class="featured-card__tag">Mobile AR</span>
+              </div>
+            </div>
+            <div><a href="#publications" class="btn-secondary">Paper ↗</a></div>
+          </div>
+        </div>
+        <div class="featured-card">
+          <div class="featured-card__img">
+            <img src="images/VR2.png" alt="VR Assessment Framework">
+          </div>
+          <div class="featured-card__body">
+            <div>
+              <div class="featured-card__num">03 — Research Tool</div>
+              <h3 class="featured-card__title">Holistic VR Training Assessment Framework</h3>
+              <p class="featured-card__desc">A framework for evaluating the effectiveness of VR industrial training using multimodal activity data — combining motion tracking, task completion metrics, and user performance ratings. M.Sc. thesis project. Presented at IC2IT 2023 (Springer Nature).</p>
+              <div class="featured-card__tags">
+                <span class="featured-card__tag">Unity</span>
+                <span class="featured-card__tag">Python</span>
+                <span class="featured-card__tag">Data Analysis</span>
+                <span class="featured-card__tag">VR Evaluation</span>
+              </div>
+            </div>
+            <div><a href="#publications" class="btn-secondary">Paper ↗</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PORTFOLIO -->
     <section id="portfolio">
       <div class="section-label">Portfolio</div>
@@ -707,6 +1001,56 @@
             <div class="pub-venue">AUCC 2019 — 9th Asia Undergraduate Conference on Computing</div>
             <div class="pub-title">"Interactive Education Content Design and Development Based on Augmented Reality"</div>
             <div class="pub-authors">Samutrat, T., Srithammee, N., & Jitngernmadan, P.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH FIGURES -->
+    <section id="research-figures">
+      <div class="section-label">Research Figures</div>
+      <h2 class="section-title">Key Findings</h2>
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-card__img">
+            <img src="images/KST_2026.jpg" alt="Figure description">
+          </div>
+          <div class="figure-card__caption">
+            <div class="figure-card__num">Fig. 1 · KST 2026</div>
+            <div class="figure-card__title">Gaze & Head Dynamics Under Different Audio Conditions</div>
+            <div class="figure-card__source">Srithammee et al., IEEE KST 2026 (In Press)</div>
+          </div>
+        </div>
+        <div class="figure-card">
+          <div class="figure-card__img">
+            <img src="images/KST_2025.png" alt="Figure description">
+
+          </div>
+          <div class="figure-card__caption">
+            <div class="figure-card__num">Fig. 2 · KST 2025</div>
+            <div class="figure-card__title">Sound Design Impact on User Experience Ratings in VR</div>
+            <div class="figure-card__source">Srithammee et al., IEEE KST 2025</div>
+          </div>
+        </div>
+        <div class="figure-card">
+          <div class="figure-card__img">
+            <img src="images/IC2IT_2023.png" alt="Figure description">
+          </div>
+          <div class="figure-card__caption">
+            <div class="figure-card__num">Fig. 3 · IC2IT 2023</div>
+            <div class="figure-card__title">Holistic Assessment Framework for VR Industrial Training</div>
+            <div class="figure-card__source">Srithammee & Jitngernmadan, Springer IC2IT 2023</div>
+          </div>
+        </div>
+        <div class="figure-card">
+          <div class="figure-card__img">
+            <img src="images/ICTC_2022.png" alt="Figure description">
+            <span class="figure-card__placeholder">Add figure image</span>
+          </div>
+          <div class="figure-card__caption">
+            <div class="figure-card__num">Fig. 4 · ICTC 2022</div>
+            <div class="figure-card__title">AR Visualization of Cellular Signal Strength in Physical Space</div>
+            <div class="figure-card__source">Srithammee et al., IEEE ICTC 2022</div>
           </div>
         </div>
       </div>
