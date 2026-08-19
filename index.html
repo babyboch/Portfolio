@@ -103,14 +103,20 @@
     }
     .sidenav__line { width: 1px; height: 48px; background: var(--rule); }
     .sidenav a {
-      display: block; width: 6px; height: 6px;
-      border-radius: 50%; background: var(--ink-faint);
-      transition: background 0.3s, transform 0.3s;
+      display: flex; align-items: center; justify-content: center;
+      width: 18px; height: 18px;
+      color: var(--ink-faint);
+      transition: color 0.3s, transform 0.3s;
       position: relative;
     }
-    .sidenav a:hover, .sidenav a.active { background: var(--accent); transform: scale(1.8); }
+    .sidenav a svg {
+      width: 15px; height: 15px;
+      stroke: currentColor; fill: none;
+      stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .sidenav a:hover, .sidenav a.active { color: var(--accent); transform: scale(1.2); }
     .sidenav a span {
-      position: absolute; left: 16px; top: 50%;
+      position: absolute; left: 24px; top: 50%;
       transform: translateY(-50%);
       font-size: 0.65rem; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--ink-light);
@@ -473,16 +479,46 @@
 
   <nav class="sidenav" aria-label="Page sections">
     <div class="sidenav__line"></div>
-    <a href="#home" class="active" data-section="home"><span>Home</span></a>
-    <a href="#about" data-section="about"><span>About</span></a>
-    <a href="#experience" data-section="experience"><span>Work</span></a>
-    <a href="#research-experience" data-section="research-experience"><span>Research</span></a>
-    <a href="#education" data-section="education"><span>Education</span></a>
-    <a href="#certifications" data-section="certifications"><span>Certs</span></a>
-    <a href="#awards" data-section="awards"><span>Awards</span></a>
-    <a href="#portfolio" data-section="portfolio"><span>Gallery</span></a>
-    <a href="#publications" data-section="publications"><span>Papers</span></a>
-    <a href="#contact" data-section="contact"><span>Contact</span></a>
+    <a href="#home" class="active" data-section="home">
+      <svg viewBox="0 0 16 16"><path d="M2 7.5 8 2l6 5.5"/><path d="M3.5 6.5V13.5H12.5V6.5"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="#about" data-section="about">
+      <svg viewBox="0 0 16 16"><circle cx="8" cy="5.2" r="2.4"/><path d="M2.8 13.5c.7-2.6 2.7-4 5.2-4s4.5 1.4 5.2 4"/></svg>
+      <span>About</span>
+    </a>
+    <a href="#experience" data-section="experience">
+      <svg viewBox="0 0 16 16"><rect x="2" y="5.5" width="12" height="7.5" rx="1"/><path d="M5.5 5.5V4a1.5 1.5 0 0 1 1.5-1.5h2A1.5 1.5 0 0 1 10.5 4v1.5"/><path d="M2 9h12"/></svg>
+      <span>Work</span>
+    </a>
+    <a href="#research-experience" data-section="research-experience">
+      <svg viewBox="0 0 16 16"><path d="M6.2 2h3.6"/><path d="M6.8 2v4.2L3.4 12a1.4 1.4 0 0 0 1.2 2.1h6.8a1.4 1.4 0 0 0 1.2-2.1L9.2 6.2V2"/><path d="M5 10.5h6"/></svg>
+      <span>Research</span>
+    </a>
+    <a href="#education" data-section="education">
+      <svg viewBox="0 0 16 16"><path d="M1.5 6 8 3l6.5 3L8 9 1.5 6Z"/><path d="M4.5 7.5v3c0 1 1.5 1.8 3.5 1.8s3.5-.8 3.5-1.8v-3"/><path d="M14.5 6v4"/></svg>
+      <span>Education</span>
+    </a>
+    <a href="#certifications" data-section="certifications">
+      <svg viewBox="0 0 16 16"><circle cx="8" cy="6.5" r="4.5"/><path d="M5.8 6.5 7.2 8l3-3.2"/><path d="M5.8 10.3 5 14.5l3-1.6 3 1.6-.8-4.2"/></svg>
+      <span>Certs</span>
+    </a>
+    <a href="#awards" data-section="awards">
+      <svg viewBox="0 0 16 16"><path d="M4.5 2.5h7v3.5a3.5 3.5 0 0 1-7 0v-3.5Z"/><path d="M4.5 3.5H2.7c0 1.8.7 3 1.8 3.3"/><path d="M11.5 3.5h1.8c0 1.8-.7 3-1.8 3.3"/><path d="M8 9.5v2.3"/><path d="M5.5 13.5h5"/><path d="M6.3 11.8h3.4l.3 1.7h-4l.3-1.7Z"/></svg>
+      <span>Awards</span>
+    </a>
+    <a href="#portfolio" data-section="portfolio">
+      <svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10" rx="1"/><circle cx="5.5" cy="6.5" r="1"/><path d="M2 11l3.5-3.5L8 10l2.5-2.5L14 11"/></svg>
+      <span>Gallery</span>
+    </a>
+    <a href="#publications" data-section="publications">
+      <svg viewBox="0 0 16 16"><path d="M4 1.8h5.2L12 4.6v9.6H4V1.8Z"/><path d="M9.2 1.8v2.8H12"/><path d="M6 8h4"/><path d="M6 10.3h4"/></svg>
+      <span>Papers</span>
+    </a>
+    <a href="#contact" data-section="contact">
+      <svg viewBox="0 0 16 16"><rect x="2" y="3.5" width="12" height="9" rx="1"/><path d="M2.5 4.2 8 8.5l5.5-4.3"/></svg>
+      <span>Contact</span>
+    </a>
     <div class="sidenav__line"></div>
   </nav>
 
@@ -960,7 +996,7 @@
         <div class="pub-item">
           <div class="pub-year">2026</div>
           <div>
-            <div class="pub-venue">KST 2026 — IEEE 18th Int'l Conference on Knowledge and Smart Technology <span class="pub-badge">In Press</span></div>
+            <div class="pub-venue">KST 2026 — IEEE 18th Int'l Conference on Knowledge and Smart Technology</div>
             <div class="pub-title">"Quantifying Audio Motion Coupling in Virtual Reality through Gaze and Head Dynamics"</div>
             <div class="pub-authors">Srithammee, N., Pannattee, P., Serizawa, M., Fukuchi, Y., & Nishiuchi, N.</div>
           </div>
@@ -1044,7 +1080,7 @@
           <div class="figure-card__caption">
             <div class="figure-card__num">Fig. 1 · KST 2026</div>
             <div class="figure-card__title">Gaze & Head Dynamics Under Different Audio Conditions</div>
-            <div class="figure-card__source">Srithammee et al., IEEE KST 2026 (In Press)</div>
+            <div class="figure-card__source">Srithammee et al., IEEE KST 2026</div>
           </div>
         </div>
         <div class="figure-card">
